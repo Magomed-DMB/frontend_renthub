@@ -1,0 +1,143 @@
+.hero-morphing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.morphing__container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.morphing__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: morphFade 0.8s ease-in-out;
+}
+
+/* Анимация появления */
+@keyframes morphFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-5deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05) rotate(0deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Размеры */
+.hero-morphing--small .morphing__item {
+  width: 150px;
+  height: 150px;
+}
+
+.hero-morphing--medium .morphing__item {
+  width: 250px;
+  height: 250px;
+}
+
+.hero-morphing--large .morphing__item {
+  width: 350px;
+  height: 350px;
+}
+
+/* Иконки */
+.morph-icon__image {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(30, 90, 168, 0.2));
+}
+
+.morph-icon__svg {
+  width: 60%;
+  height: 60%;
+  color: var(--primary);
+}
+
+.morph-icon__emoji {
+  font-size: 8rem;
+  filter: drop-shadow(0 8px 16px rgba(30, 90, 168, 0.2));
+}
+
+/* Индикаторы */
+.morphing__indicators {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.morphing__indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all 0.3s ease;
+}
+
+.morphing__indicator--active {
+  width: 24px;
+  border-radius: 4px;
+  background: var(--accent);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .hero-morphing--large .morphing__item {
+    width: 250px;
+    height: 250px;
+  }
+
+  .hero-morphing--medium .morphing__item {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero-morphing--small .morphing__item {
+    width: 120px;
+    height: 120px;
+  }
+
+  .morph-icon__emoji {
+    font-size: 5rem;
+  }
+
+  .morphing__indicators {
+    bottom: -30px;
+  }
+
+  .morph-icon__image {
+    width: 80%;
+    height: 80%;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .hero-morphing--large .morphing__item {
+    width: 200px;
+    height: 200px;
+  }
+
+  .morphing__indicators {
+    bottom: -25px;
+  }
+}
